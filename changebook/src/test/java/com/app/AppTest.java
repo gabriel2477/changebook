@@ -1,20 +1,23 @@
 package com.app;
 
-import static org.junit.Assert.assertTrue;
-
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import com.changebook.app.model.Libro;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+
+	@Test
+	public void darDeAltaUnNuevoLibro() {
+
+		Libro libro = new Libro();
+		libro.setName("La Biblia");
+
+		Assertions.assertThat(libro).isNotNull();
+		Assertions.assertThat(libro.getName()).isEqualTo("La Biblia");
+
+	}
 }
