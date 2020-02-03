@@ -11,7 +11,7 @@ import com.changebook.app.model.Libro;
 public class AppTest {
 
 	@Test
-	public void darDeAltaUnNuevoLibro() {
+	public void crearUnLibro() {
 
 		Libro libro = new Libro();
 		libro.setName("La Biblia");
