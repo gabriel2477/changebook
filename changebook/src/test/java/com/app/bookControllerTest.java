@@ -1,5 +1,8 @@
 package com.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -57,7 +60,28 @@ public class bookControllerTest {
 	
 	@Test
 	public void ObtenerTodosLosLibros() {
-		//TODO
+		ArrayList<Libro> listaLibros= new ArrayList<Libro>();
+		Libro libroAmazonas = new Libro();
+		libroAmazonas.setId(10);
+		libroAmazonas.setISBN("a4568e231");
+		libroAmazonas.setName("El Libro del Amazonas");
+		
+		Libro filosofiaEn11Frases = new Libro();
+		filosofiaEn11Frases.setId(11);
+		filosofiaEn11Frases.setISBN("97895012");
+		filosofiaEn11Frases.setName("Filosofia en 11 Frases");
+	
+		listaLibros.add(libroAmazonas);
+		listaLibros.add(filosofiaEn11Frases);
+		
+		Mockito.when(bookController.obtenerTodosLosLibros()).thenReturn(listaLibros);
+		
+		List<Libro> lista = bookController.obtenerTodosLosLibros();
+		
+		Mockito.verify(mockBookService).obtenerTodosLosLibros();
+		
+		Assertions.assertThat(lista).isEqualTo(listaLibros);
+		
 	}
 	
 	@Test
